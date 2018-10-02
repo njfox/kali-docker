@@ -24,6 +24,7 @@ RUN cd ~/tools \
 
 # GDB PEDA
 RUN cd ~/tools \
+    && apt-get install -y gdb \
     && git clone https://github.com/longld/peda \
     && echo "source ~/tools/peda/peda.py" >> ~/.gdbinit
 
