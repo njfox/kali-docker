@@ -25,12 +25,9 @@ RUN apt-get install -y libssl-dev libffi-dev python-dev build-essential \
     && echo 'alias cme="~/tools/venvs/cme/bin/cme"' >> /root/.bashrc
 
 # Empire
-#RUN cd ~/tools/venvs && virtualenv empire \
-#    && . empire/bin/activate \
-#    && cd ~/tools && git clone https://github.com/EmpireProject/Empire \
-#    && cd Empire && printf '\n' | ./setup/install.sh \
-#    && echo 'alias empire=". ~/tools/venvs/empire/bin/ && cd ~/tools/Empire && ./empire"' >> /root/.bashrc \
-#    && deactivate
+RUN cd ~/tools && git clone https://github.com/EmpireProject/Empire \
+    && cd Empire && printf '\n' | ./setup/install.sh \
+    && echo 'alias empire="cd ~/tools/Empire && ./empire"' >> /root/.bashrc
 
 # GDB PEDA
 RUN cd ~/tools \
