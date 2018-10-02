@@ -37,3 +37,5 @@ RUN cd ~/tools \
 
 # MSF Database
 RUN echo 'alias msfconsole="msfconsole --quiet -x \"db_connect msf@msf\""' >> /root/.bashrc
+
+WORKDIR /root
