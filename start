@@ -1,0 +1,10 @@
+#!/bin/bash
+
+docker run --rm --detach --privileged -it \
+    --net=host \
+    -v $HOME/Documents:/root/Documents \
+    --hostname kali \
+    --name kali \
+    kali \
+    bash \
+  && echo "[+] Started!"
