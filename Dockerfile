@@ -3,7 +3,7 @@ FROM kalilinux/kali-linux-docker
 RUN apt-get update && apt-get dist-upgrade -y && apt autoremove -y
 
 RUN apt-get install -y metasploit-framework man-db exploitdb sqlmap virtualenv python-pip \
-    net-tools dnsutils netcat python3-venv vim
+    net-tools dnsutils netcat python3-venv vim wpscan proxychains
 
 # SSLyze
 RUN mkdir -p ~/tools/venvs && cd ~/tools/venvs \
