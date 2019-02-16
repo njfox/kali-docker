@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 127.0.0.1:5432:5432
+    environment:
+      - POSTGRES_DB=msf
+      - POSTGRES_USER=msf
+      - POSTGRES_PASSWORD=msf
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+  kali:
+    build: ./kali
+    container_name: kali
+    depends_on:
+      - postgres
+    network_mode: "host"
+    privileged: true
+    hostname: kali
+    command: tail -f /dev/null # keep container running after starting with compose
+    volumes:
+      - ./database.yml:/root/.msf4/database.yml
+    

@@ -3,7 +3,8 @@ FROM kalilinux/kali-linux-docker
 RUN apt-get update && apt-get dist-upgrade -y && apt autoremove -y
 
 RUN apt-get install -y metasploit-framework man-db exploitdb sqlmap virtualenv python-pip \
-    net-tools dnsutils netcat python3-venv vim wpscan proxychains tcpdump
+    net-tools dnsutils netcat python3-venv vim wpscan proxychains tcpdump dnschef python-ipy \
+    theharvester cmake
 
 # SSLyze
 RUN mkdir -p ~/tools/venvs && cd ~/tools/venvs \
@@ -34,8 +35,5 @@ RUN cd ~/tools \
     && apt-get install -y gdb \
     && git clone https://github.com/longld/peda \
     && echo "source ~/tools/peda/peda.py" >> ~/.gdbinit
-
-# MSF Database
-RUN echo 'alias msfconsole="msfconsole --quiet -x \"db_connect msf@msf\""' >> /root/.bashrc
 
 WORKDIR /root

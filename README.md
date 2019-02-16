@@ -1,7 +1,7 @@
 # Kali-Docker
-A customized Kali docker build to avoid the overhead of running a full Kali VM. The start/stop/connect management scripts are based on Grazfather's [mypwndock](https://github.com/Grazfather/mypwndock).
+A customized Kali docker build to avoid the overhead of running a full Kali VM. The `docker-compose` file also includes a postgres container to be used for persistent storage of the metasploit module cache data and workspace data.
 
 ## Usage
-Clone this repo and run `./build` to build the image, followed by `./start` to boot it up. You can connect to a bash shell within the container with `./connect`. When you're done, stop it with `./stop`.
+Install `docker-compose` using your distro's package manager and start the containers with `docker-compose up -d`. You can connect to a bash shell within the container with `./connect`. When you're done, stop the containers with `docker-compose down`.
 
-You can add further customizations, such as installing new packages in the Dockerfile. Host directories can be mounted by the image by adding the `-v` option in the `start` script. `~/Documents` is mounted to `/root/Documents` by default.
+You can add further customizations, such as installing new packages in the Dockerfile.

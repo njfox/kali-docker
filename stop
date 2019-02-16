@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker kill kali >/dev/null && echo "[+] Stopped!"
