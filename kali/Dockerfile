@@ -36,4 +36,12 @@ RUN cd ~/tools \
     && git clone https://github.com/longld/peda \
     && echo "source ~/tools/peda/peda.py" >> ~/.gdbinit
 
+# Golang
+RUN apt-get install -y golang \
+    && /bin/bash -c "echo -e 'export GOPATH=$HOME/go' >> ~/.bashrc" \
+    && /bin/bash -c "echo -e 'export PATH=${PATH}:$HOME/go/bin' >> ~/.bashrc"
+
+# digcaa
+RUN /bin/bash -c "source ~/.bashrc && go get github.com/weppos/dnscaa/cmd/digcaa"
+
 WORKDIR /root
