@@ -54,6 +54,11 @@ RUN cd ~/tools \
     && git clone https://github.com/maurosoria/dirsearch \
     && echo 'alias dirsearch="cd ~/tools/dirsearch && python3 ./dirsearch.py"' >> /root/.bashrc
 
+# Unicorn
+RUN cd ~/tools \
+    && git clone https://github.com/trustedsec/unicorn \
+    && echo 'alias unicorn="cd ~/tools/unicorn && python3 ./unicorn.py"'
+
 # fuzz.txt
 RUN mkdir -p ~/wordlists && cd ~/wordlists \
     && git clone https://github.com/Bo0oM/fuzz.txt
