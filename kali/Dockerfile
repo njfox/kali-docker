@@ -28,7 +28,9 @@ RUN apt-get install -y libssl-dev libffi-dev python-dev build-essential \
 # Empire
 RUN cd ~/tools && git clone https://github.com/EmpireProject/Empire \
     && cd Empire && printf '\n' | ./setup/install.sh \
-    && echo 'alias empire="cd ~/tools/Empire && ./empire"' >> /root/.bashrc
+    && echo '#!/bin/bash' >> /usr/local/bin/empire \
+    && echo 'cd ~/tools/Empire && ./empire "$@"' >> /usr/local/bin/empire \
+    && chmod +x /usr/local/bin/empire
 
 # GDB PEDA
 RUN cd ~/tools \
