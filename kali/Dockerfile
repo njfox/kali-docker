@@ -44,4 +44,9 @@ RUN apt-get install -y golang \
 # digcaa
 RUN /bin/bash -c "source ~/.bashrc && go get github.com/weppos/dnscaa/cmd/digcaa"
 
+# Interlace
+RUN cd ~/tools \
+    && git clone https://github.com/codingo/interlace \
+    && cd interlace && python3 setup.py install
+
 WORKDIR /root
