@@ -4,7 +4,7 @@ RUN apt-get update && apt-get dist-upgrade -y && apt autoremove -y
 
 RUN apt-get install -y metasploit-framework man-db exploitdb sqlmap virtualenv python-pip \
     net-tools dnsutils netcat python3-venv vim wpscan proxychains tcpdump dnschef python-ipy \
-    theharvester cmake responder nikto
+    theharvester cmake responder nikto python-libnmap
 
 # SSLyze
 RUN mkdir -p ~/tools/venvs && cd ~/tools/venvs \
