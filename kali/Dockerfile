@@ -54,4 +54,8 @@ RUN cd ~/tools \
     && git clone https://github.com/maurosoria/dirsearch \
     && echo 'alias dirsearch="cd ~/tools/dirsearch && python3 ./dirsearch.py"' >> /root/.bashrc
 
+# fuzz.txt
+RUN mkdir -p ~/wordlists && cd ~/wordlists \
+    && git clone https://github.com/Bo0oM/fuzz.txt
+    
 WORKDIR /root
