@@ -49,4 +49,9 @@ RUN cd ~/tools \
     && git clone https://github.com/codingo/interlace \
     && cd interlace && python3 setup.py install
 
+# Dirsearch
+RUN cd ~/tools \
+    && git clone https://github.com/maurosoria/dirsearch \
+    && echo 'alias dirsearch="cd ~/tools/dirsearch && python3 ./dirsearch.py"' >> /root/.bashrc
+
 WORKDIR /root
