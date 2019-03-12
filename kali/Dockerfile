@@ -58,4 +58,8 @@ RUN cd ~/tools \
 RUN mkdir -p ~/wordlists && cd ~/wordlists \
     && git clone https://github.com/Bo0oM/fuzz.txt
     
+# SecLists
+RUN mkdir -p ~/wordlists && cd ~/wordlists \
+    && git clone https://github.com/danielmiessler/SecLists
+
 WORKDIR /root
