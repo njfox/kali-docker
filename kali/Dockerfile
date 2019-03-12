@@ -57,7 +57,7 @@ RUN cd ~/tools \
 # Unicorn
 RUN cd ~/tools \
     && git clone https://github.com/trustedsec/unicorn \
-    && echo 'alias unicorn="cd ~/tools/unicorn && python3 ./unicorn.py"'
+    && echo 'alias unicorn="cd ~/tools/unicorn && python3 ./unicorn.py"' >> /root/.bashrc
 
 # fuzz.txt
 RUN mkdir -p ~/wordlists && cd ~/wordlists \
