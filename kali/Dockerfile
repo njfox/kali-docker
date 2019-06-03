@@ -4,16 +4,8 @@ RUN apt-get update && apt-get dist-upgrade -y && apt autoremove -y
 
 RUN apt-get install -y metasploit-framework man-db exploitdb sqlmap virtualenv python-pip \
     net-tools dnsutils netcat python3-venv vim wpscan proxychains tcpdump dnschef python-ipy \
-    theharvester cmake responder nikto python-libnmap snmpcheck screen ike-scan gobuster
-
-# SSLyze
-RUN mkdir -p ~/tools/venvs && cd ~/tools/venvs \
-    && python3 -m venv sslyze \
-    && . sslyze/bin/activate \
-    && pip install --upgrade setuptools \
-    && pip install --upgrade sslyze \
-    && echo 'alias sslyze="~/tools/venvs/sslyze/bin/sslyze"' >> /root/.bashrc \
-    && deactivate
+    theharvester cmake responder nikto python-libnmap snmpcheck screen ike-scan gobuster hydra \
+    brutespray sslyze
 
 # CrackMapExec
 RUN apt-get install -y libssl-dev libffi-dev python-dev build-essential \
