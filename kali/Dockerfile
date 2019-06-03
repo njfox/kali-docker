@@ -80,4 +80,8 @@ RUN cd ~/tools \
     && /bin/bash -c "source ~/.bashrc && GOOS=linux GOARCH=amd64 go build -o aquatone ." \
     && mv aquatone /usr/local/bin
 
+# tmux
+RUN apt-get update && apt-get install -y tmux \
+    && echo 'set -g mouse on' >> /root/.tmux.conf
+
 WORKDIR /root
