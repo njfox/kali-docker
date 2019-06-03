@@ -65,6 +65,13 @@ RUN cd ~/tools \
     && echo 'cd ~/tools/unicorn && python3 ./unicorn.py "$@"' >> /usr/local/bin/unicorn \
     && chmod +x /usr/local/bin/unicorn
 
+# rdp-sec-check
+RUN apt-get update && apt-get install -y perl build-essential \
+    && /bin/bash -c "PERL_MM_USE_DEFAULT=1 cpan install Encoding::BER" \
+    && cd ~/tools && git clone https://github.com/portcullislabs/rdp-sec-check \
+    && cp rdp-sec-check/rdp-sec-check.pl /usr/local/bin/rdp-sec-check \
+    && chmod +x /usr/local/bin/rdp-sec-check
+
 # fuzz.txt
 RUN mkdir -p ~/wordlists && cd ~/wordlists \
     && git clone https://github.com/Bo0oM/fuzz.txt
