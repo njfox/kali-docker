@@ -72,4 +72,12 @@ RUN mkdir -p ~/wordlists && cd ~/wordlists \
 RUN mkdir -p ~/wordlists && cd ~/wordlists \
     && git clone https://github.com/danielmiessler/SecLists
 
+# aquatone
+RUN cd ~/tools \
+    && git clone https://github.com/michenriksen/aquatone \
+    && cd aquatone \
+    && /bin/bash -c "source ~/.bashrc && go get -d ./..." \
+    && /bin/bash -c "source ~/.bashrc && GOOS=linux GOARCH=amd64 go build -o aquatone ." \
+    && mv aquatone /usr/local/bin
+
 WORKDIR /root
