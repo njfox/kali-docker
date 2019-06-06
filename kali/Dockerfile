@@ -73,7 +73,8 @@ RUN mkdir -p ~/wordlists && cd ~/wordlists \
     && git clone https://github.com/danielmiessler/SecLists
 
 # aquatone
-RUN cd ~/tools \
+RUN apt-get update && apt-get install -y chromium \
+    && cd ~/tools \
     && git clone https://github.com/michenriksen/aquatone \
     && cd aquatone \
     && /bin/bash -c "source ~/.bashrc && go get -d ./..." \
