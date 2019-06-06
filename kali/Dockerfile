@@ -7,7 +7,7 @@ RUN apt-get install -y metasploit-framework man-db exploitdb sqlmap virtualenv p
     theharvester cmake responder nikto python-libnmap snmpcheck screen ike-scan gobuster hydra \
     brutespray sslyze dirbuster
 
-RUN mkdir /root/tools
+RUN mkdir -p /root/tools/venvs
 
 # CrackMapExec
 RUN apt-get install -y libssl-dev libffi-dev python-dev build-essential \
