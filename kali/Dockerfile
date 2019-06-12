@@ -87,4 +87,7 @@ RUN apt-get update && apt-get install -y chromium \
 RUN apt-get update && apt-get install -y tmux \
     && echo 'set -g mouse on' >> /root/.tmux.conf
 
+# LUCKYMINUS20 POC/Scanner
+RUN /bin/bash -c "source ~/.bashrc && go get github.com/FiloSottile/CVE-2016-2107"
+
 WORKDIR /root
