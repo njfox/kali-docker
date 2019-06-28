@@ -90,4 +90,7 @@ RUN apt-get update && apt-get install -y tmux \
 # LUCKYMINUS20 POC/Scanner
 RUN /bin/bash -c "source ~/.bashrc && go get github.com/FiloSottile/CVE-2016-2107"
 
+# mitm6
+RUN pip install mitm6
+
 WORKDIR /root
