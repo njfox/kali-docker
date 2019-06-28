@@ -5,7 +5,7 @@ RUN apt-get update && apt-get dist-upgrade -y && apt autoremove -y
 RUN apt-get install -y metasploit-framework man-db exploitdb sqlmap virtualenv python-pip \
     net-tools dnsutils netcat python3-venv vim wpscan proxychains tcpdump dnschef python-ipy \
     theharvester cmake responder nikto python-libnmap snmpcheck screen ike-scan gobuster hydra \
-    brutespray sslyze dirbuster
+    brutespray sslyze dirbuster mlocate smbclient
 
 RUN mkdir -p /root/tools/venvs
 
