@@ -93,4 +93,10 @@ RUN /bin/bash -c "source ~/.bashrc && go get github.com/FiloSottile/CVE-2016-210
 # mitm6
 RUN pip install mitm6
 
+# impacket
+RUN apt-get update && apt-get install -y python-pyasn1 python-pycryptodome python-openssl python-ldap3 python-flask python-ldapdomaindump \
+    && cd ~/tools && git clone https://github.com/SecureAuthCorp/impacket \
+    && cd impacket \
+    && pip install .
+
 WORKDIR /root
