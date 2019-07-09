@@ -99,4 +99,7 @@ RUN apt-get update && apt-get install -y python-pyasn1 python-pycryptodome pytho
     && cd impacket \
     && pip install .
 
+# boofuzz
+RUN pip3 install boofuzz
+
 WORKDIR /root
