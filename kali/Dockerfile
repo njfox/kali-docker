@@ -102,4 +102,10 @@ RUN apt-get update && apt-get install -y python-pyasn1 python-pycryptodome pytho
 # boofuzz
 RUN pip3 install boofuzz
 
+# snmpwn
+RUN cd ~/tools && git clone https://github.com/hatlord/snmpwn.git \
+    && cd snmpwn \
+    && gem install bundler && bundle install \
+    && ln -s snmpwn.rb /usr/local/bin/snmpwn
+
 WORKDIR /root
