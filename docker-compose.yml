@@ -13,7 +13,7 @@ services:
     volumes:
       - ./postgres:/var/lib/postgresql/data
   kali:
-    build: ./kali
+    image: njfox/kali-docker
     container_name: kali
     depends_on:
       - postgres
