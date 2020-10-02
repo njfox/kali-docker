@@ -2,29 +2,17 @@ FROM kalilinux/kali-linux-docker
 
 RUN apt-get update && apt-get dist-upgrade -y && apt autoremove -y
 
-RUN apt-get install -y metasploit-framework man-db exploitdb sqlmap virtualenv python-pip \
-    net-tools dnsutils netcat python3-venv vim wpscan proxychains tcpdump dnschef python-ipy \
-    theharvester cmake responder nikto python-libnmap snmpcheck screen ike-scan gobuster hydra \
+RUN apt-get install -y metasploit-framework man-db exploitdb sqlmap virtualenv \
+    net-tools dnsutils netcat python3-venv vim wpscan proxychains tcpdump dnschef python3-ipy \
+    theharvester cmake responder nikto python3-libnmap snmpcheck screen ike-scan gobuster hydra \
     brutespray sslyze dirbuster mlocate smbclient ntp mitmproxy
 
 RUN mkdir -p /root/tools/venvs
 
 # CrackMapExec
-RUN apt-get install -y libssl-dev libffi-dev python-dev build-essential \
-    && cd ~/tools/venvs && virtualenv cme \
-    && . cme/bin/activate \
-    && cd ~/tools && git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec.git \
-    && cd CrackMapExec \
-    && python setup.py install \
-    && deactivate \
-    && echo 'alias cme="~/tools/venvs/cme/bin/cme"' >> /root/.bashrc
-
-# Empire
-RUN cd ~/tools && git clone https://github.com/EmpireProject/Empire \
-    && cd Empire && printf '\n' | ./setup/install.sh \
-    && echo '#!/bin/bash' >> /usr/local/bin/empire \
-    && echo 'cd ~/tools/Empire && ./empire "$@"' >> /usr/local/bin/empire \
-    && chmod +x /usr/local/bin/empire
+RUN python3 -m pip install pipx \
+  && pipx install crackmapexec \
+  && /bin/bash -c "echo -e 'export PATH=$PATH:/root/.local/bin' >> ~/.bashrc" 
 
 # GDB PEDA
 RUN cd ~/tools \
@@ -91,16 +79,16 @@ RUN apt-get update && apt-get install -y tmux \
 RUN /bin/bash -c "source ~/.bashrc && go get github.com/FiloSottile/CVE-2016-2107"
 
 # mitm6
-RUN pip install mitm6
+RUN python3 -m pip install mitm6
 
 # impacket
-RUN apt-get update && apt-get install -y python-pyasn1 python-pycryptodome python-openssl python-ldap3 python-flask python-ldapdomaindump \
+RUN apt-get update && apt-get install -y python3-pyasn1 python3-pycryptodome python3-openssl python3-ldap3 python3-flask python3-ldapdomaindump \
     && cd ~/tools && git clone https://github.com/SecureAuthCorp/impacket \
     && cd impacket \
-    && pip install .
+    && pip3 install .
 
 # boofuzz
-RUN pip3 install boofuzz
+RUN python3 -m pip install boofuzz
 
 # snmpwn
 RUN apt-get install -y snmp \
