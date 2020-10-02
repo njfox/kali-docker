@@ -1,4 +1,4 @@
-FROM kalilinux/kali-linux-docker
+FROM kalilinux/kali-rolling
 
 RUN apt-get update && apt-get dist-upgrade -y && apt autoremove -y
 
